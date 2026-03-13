@@ -1,0 +1,75 @@
+/* ============================================================
+   LOADER — css/loader.css
+   Animated S letter draw → progress bar → page reveal
+   ============================================================ */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  background: #050508;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Corner brackets */
+.loader-corners { position:absolute; inset:40px; pointer-events:none; opacity:0; animation:lcFade .8s ease .3s forwards; }
+.corner { position:absolute; width:28px; height:28px; border-color:rgba(0,245,255,0.18); border-style:solid; }
+.corner.tl { top:0; left:0;    border-width:1px 0 0 1px; }
+.corner.tr { top:0; right:0;   border-width:1px 1px 0 0; }
+.corner.bl { bottom:0; left:0;  border-width:0 0 1px 1px; }
+.corner.br { bottom:0; right:0; border-width:0 1px 1px 0; }
+@keyframes lcFade { to { opacity:1; } }
+
+/* Scan line */
+.loader-scan { position:absolute; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(0,245,255,0.12),transparent); animation:scanDown 3.5s ease-in-out 1.2s infinite; opacity:0; }
+@keyframes scanDown { 0%{top:0%;opacity:0;} 5%{opacity:1;} 95%{opacity:1;} 100%{top:100%;opacity:0;} }
+
+/* Floating bg particles */
+.loader-particles { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+.lp { position:absolute; border-radius:50%; animation:floatP linear infinite; opacity:0; }
+@keyframes floatP { 0%{transform:translateY(110vh);opacity:0;} 10%{opacity:1;} 90%{opacity:1;} 100%{transform:translateY(-20px);opacity:0;} }
+
+/* S letter */
+.loader-letter { position:relative; width:140px; height:140px; display:flex; align-items:center; justify-content:center; }
+.loader-letter svg { width:140px; height:140px; overflow:visible; }
+.s-path {
+  fill:none; stroke:url(#sGrad); stroke-width:6;
+  stroke-linecap:round; stroke-linejoin:round;
+  stroke-dasharray:420; stroke-dashoffset:420;
+  animation: drawS 1.5s cubic-bezier(0.4,0,0.2,1) 0.6s forwards;
+  filter: drop-shadow(0 0 10px #00f5ff) drop-shadow(0 0 22px rgba(0,245,255,0.4));
+}
+@keyframes drawS { to { stroke-dashoffset:0; } }
+
+/* Orbit dot after S draws */
+.s-orbit { position:absolute; width:100%; height:100%; top:0; left:0; opacity:0; animation:orbitRing 2s linear 2.2s infinite; animation-fill-mode:forwards; }
+@keyframes orbitRing { 0%{transform:rotate(0deg);opacity:0;} 8%{opacity:1;} 100%{transform:rotate(360deg);opacity:1;} }
+.s-orbit-dot { position:absolute; top:0; left:50%; width:9px; height:9px; border-radius:50%; background:#9b5de5; box-shadow:0 0 12px #9b5de5,0 0 24px rgba(155,93,229,0.7); transform:translateX(-50%) translateY(-4px); }
+
+/* second orbit (pink, opposite) */
+.s-orbit2 { position:absolute; width:80%; height:80%; top:10%; left:10%; opacity:0; animation:orbitRing2 2.8s linear 2.4s infinite; animation-fill-mode:forwards; }
+@keyframes orbitRing2 { 0%{transform:rotate(180deg);opacity:0;} 8%{opacity:1;} 100%{transform:rotate(-180deg);opacity:1;} }
+.s-orbit-dot2 { position:absolute; top:0; left:50%; width:6px; height:6px; border-radius:50%; background:#f72585; box-shadow:0 0 10px #f72585,0 0 20px rgba(247,37,133,0.6); transform:translateX(-50%) translateY(-3px); }
+
+/* Loader tagline */
+.loader-text { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:6px; text-transform:uppercase; color:rgba(0,245,255,0.5); opacity:0; animation:lcFade .6s ease 2s forwards; }
+
+/* Progress wrap */
+.loader-progress-wrap { width:260px; display:flex; flex-direction:column; gap:10px; opacity:0; animation:lcFade .5s ease 2.1s forwards; }
+.loader-progress-track { width:100%; height:1px; background:rgba(255,255,255,0.06); position:relative; overflow:visible; }
+.loader-progress-fill { position:absolute; top:0; left:0; height:100%; width:0%; background:linear-gradient(90deg,#00f5ff,#9b5de5,#f72585); box-shadow:0 0 8px #00f5ff; transition:width 0.05s linear; }
+.loader-progress-fill::after { content:''; position:absolute; right:-2px; top:-2px; width:5px; height:5px; border-radius:50%; background:#fff; box-shadow:0 0 10px #00f5ff; }
+.loader-percent { font-family:'Syne',sans-serif; font-weight:800; font-size:11px; letter-spacing:3px; color:rgba(0,245,255,0.45); text-align:right; }
+
+/* Status text */
+.loader-status { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:2px; color:rgba(255,255,255,0.18); text-align:center; min-height:14px; opacity:0; animation:lcFade .5s ease 2.2s forwards; }

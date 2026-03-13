@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stellen — Full Stack Developer</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/loader.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════
+       LOADER  — SVG "S" draw + progress bar
+       ════════════════════════════════════════════════════ -->
+  <div id="loader">
+
+    <!-- Animated S -->
+    <div id="loader-s">
+      <div class="s-orbit">
+        <div class="s-orbit-dot"></div>
+        <div class="s-orbit-dot-2"></div>
+      </div>
+      <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#00f5ff"/>
+            <stop offset="50%"  stop-color="#9b5de5"/>
+            <stop offset="100%" stop-color="#f72585"/>
+          </linearGradient>
+        </defs>
+        <!--
+          S path: starts top-right, curves left across top,
+          down through mid crossover, sweeps right across bottom.
+          Carefully hand-tuned cubic bezier for a bold "S".
+        -->
+        <path class="s-path glowing" d="
+          M 90,28
+          C 90,28  75,10  55,12
+          C 35,14  18,28  22,48
+          C 26,68  50,72  65,80
+          C 80,88  96,96  94,116
+          C 92,136 72,150 50,148
+          C 28,146 18,132 18,132
+        "/>
+      </svg>
+    </div>
+
+    <!-- Name tag -->
+    <div id="loader-name">Stellen<span>.</span>dev</div>
+
+    <!-- Progress -->
+    <div id="loader-progress-wrap">
+      <div id="loader-bar-track">
+        <div id="loader-bar-fill"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;width:100%">
+        <div id="loader-status">Initialising...</div>
+        <div id="loader-percent">0%</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /LOADER -->
+
+
+  <!-- ════════════════════════════════════════════════════
+       PAGE CHROME
+       ════════════════════════════════════════════════════ -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+  <div id="progress-bar"></div>
+  <div id="bg-transition"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Scene indicator -->
+  <div id="bg-label">Scene 1 / 5</div>
+  <div id="bg-dots">
+    <div class="bg-dot active" onclick="switchBG(0)" title="Particle Galaxy"></div>
+    <div class="bg-dot"        onclick="switchBG(1)" title="Neural Web"></div>
+    <div class="bg-dot"        onclick="switchBG(2)" title="Geometry Storm"></div>
+    <div class="bg-dot"        onclick="switchBG(3)" title="Data Matrix"></div>
+    <div class="bg-dot"        onclick="switchBG(4)" title="Cosmic Nebula"></div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════════════════ -->
+  <nav>
+    <div class="logo">Stellen<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        Open to opportunities
+      </div>
+      <p class="hero-greeting">Hello, world. I'm</p>
+      <h1 class="hero-name">
+        Thando<br>
+        <span class="glow">Stellen</span><br>
+        Ncube
+      </h1>
+      <p class="hero-title">Full Stack Developer</p>
+      <p class="hero-desc">
+        Self-taught developer from South Africa. I build digital experiences
+        from the ground up — clean code, bold interfaces, scalable systems.
+        Passionate about turning ideas into products that work beautifully.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-glow">View Projects →</a>
+        <a href="#contact"  class="btn-outline">Get In Touch</a>
+      </div>
+    </div>
+
+    <!-- Floating 3D info card -->
+    <div class="hero-3d-card floating">
+      <div class="card-inner">
+        <div class="card-avatar">SN</div>
+        <div class="card-name">Stellen Ncube</div>
+        <div class="card-role">Full Stack Developer</div>
+        <div class="card-stats">
+          <div class="cs"><span class="cs-num">100%</span><span class="cs-label">Self-Taught</span></div>
+          <div class="cs"><span class="cs-num">ZA</span><span class="cs-label">South Africa</span></div>
+          <div class="cs"><span class="cs-num">∞</span><span class="cs-label">Drive</span></div>
+          <div class="cs"><span class="cs-num">24/7</span><span class="cs-label">Building</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      Scroll to explore
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       ABOUT
+       ════════════════════════════════════════════════════ -->
+  <div class="glowing-divider"></div>
+  <section id="about">
+    <div class="s-wrap">
+      <div class="about-grid">
+        <div>
+          <div class="s-label reveal">About Me</div>
+          <h2 class="s-title reveal">The Dev<br>Behind the <span>Code</span></h2>
+          <div class="about-text reveal">
+            <div class="self-taught-badge">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              100% Self-Taught
+            </div>
+            <p>
+              My name is <strong>Thando Lameck Ncube</strong> — but on the internet,
+              I go by <strong>Stellen</strong>. I'm a full stack developer based in
+              South Africa who fell in love with building things on the web.
+            </p>
+            <p>
+              I didn't take the traditional route. No bootcamp, no university. Just
+              <strong>curiosity, late nights, and an internet connection</strong>.
+              I taught myself everything from HTML fundamentals to backend architecture
+              and deployment pipelines.
+            </p>
+            <p>
+              I believe passion and perseverance matter more than credentials. Every
+              project I build is a chance to level up and create something
+              <strong>real that people can use</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="about-visual reveal">
+          <div class="orbit-ring"><div class="orbit-dot"></div></div>
+          <div class="orbit-ring"><div class="orbit-dot"></div></div>
+          <div class="orbit-ring"><div class="orbit-dot"></div></div>
+          <div class="orbit-center">SN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       SKILLS
+       ════════════════════════════════════════════════════ -->
+  <div class="glowing-divider"></div>
+  <section id="skills" class="skills-section">
+    <div class="s-wrap">
+      <div class="s-label reveal">Expertise</div>
+      <h2 class="s-title reveal">What I <span>Build</span> With</h2>
+      <div class="skills-grid">
+
+        <!-- Frontend -->
+        <div class="skill-card reveal">
+          <div class="sib">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="sk-name">Frontend</div>
+          <div class="sk-desc">Creating responsive, interactive UIs that feel fast and look stunning on every screen.</div>
+          <div class="tech-pills">
+            <span class="pill">React</span><span class="pill">Next.js</span>
+            <span class="pill">TypeScript</span><span class="pill">HTML5</span>
+            <span class="pill">CSS3</span><span class="pill">Tailwind</span>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="skill-card reveal rv2">
+          <div class="sib v">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          </div>
+          <div class="sk-name">Backend</div>
+          <div class="sk-desc">Designing and building reliable APIs, server logic, and authentication systems from scratch.</div>
+          <div class="tech-pills">
+            <span class="pill v">Node.js</span><span class="pill v">Express</span>
+            <span class="pill v">Python</span><span class="pill v">REST APIs</span>
+            <span class="pill v">JWT Auth</span>
+          </div>
+        </div>
+
+        <!-- Database -->
+        <div class="skill-card reveal rv3">
+          <div class="sib p">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div class="sk-name">Database</div>
+          <div class="sk-desc">Structuring and managing data for scale with both SQL and NoSQL technologies.</div>
+          <div class="tech-pills">
+            <span class="pill p">PostgreSQL</span><span class="pill p">MongoDB</span>
+            <span class="pill p">Firebase</span><span class="pill p">Supabase</span>
+          </div>
+        </div>
+
+        <!-- Deployment -->
+        <div class="skill-card reveal">
+          <div class="sib">
+            <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          </div>
+          <div class="sk-name">Deployment</div>
+          <div class="sk-desc">Taking projects from local to live — CI/CD, containerization, and cloud hosting.</div>
+          <div class="tech-pills">
+            <span class="pill">Docker</span><span class="pill">Vercel</span>
+            <span class="pill">Netlify</span><span class="pill">GitHub Actions</span>
+          </div>
+        </div>
+
+        <!-- UI/UX -->
+        <div class="skill-card reveal rv2">
+          <div class="sib g">
+            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <div class="sk-name">UI / UX Design</div>
+          <div class="sk-desc">Thinking beyond code to craft experiences that look great and feel even better to use.</div>
+          <div class="tech-pills">
+            <span class="pill g">Figma</span><span class="pill g">Framer</span>
+            <span class="pill g">Three.js</span><span class="pill g">GSAP</span>
+          </div>
+        </div>
+
+        <!-- Dev Tools -->
+        <div class="skill-card reveal rv3">
+          <div class="sib v">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="sk-name">Dev Tools</div>
+          <div class="sk-desc">The daily toolkit that keeps development efficient, collaborative, and well-tested.</div>
+          <div class="tech-pills">
+            <span class="pill v">Git</span><span class="pill v">VS Code</span>
+            <span class="pill v">Postman</span><span class="pill v">Linux</span>
+            <span class="pill v">npm/yarn</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       PROJECTS
+       ════════════════════════════════════════════════════ -->
+  <div class="glowing-divider"></div>
+  <section id="projects">
+    <div class="s-wrap">
+      <div class="s-label reveal">Portfolio</div>
+      <h2 class="s-title reveal">Personal <span>Projects</span></h2>
+      <div class="projects-list">
+
+        <div class="project-item reveal">
+          <div class="proj-num">01</div>
+          <div>
+            <div class="proj-type">Full Stack App</div>
+            <h3 class="proj-title">Project One</h3>
+            <p class="proj-desc">A full stack web application built with React and Node.js. Features user authentication, real-time functionality, and a clean responsive interface. Built to solve a real problem, shipped entirely from scratch.</p>
+            <div class="tech-pills"><span class="pill">React</span><span class="pill v">Node.js</span><span class="pill p">MongoDB</span></div>
+          </div>
+          <a href="#" class="proj-link">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+        </div>
+
+        <div class="project-item reveal">
+          <div class="proj-num">02</div>
+          <div>
+            <div class="proj-type">Frontend Project</div>
+            <h3 class="proj-title">Project Two</h3>
+            <p class="proj-desc">A visually rich frontend project showcasing advanced CSS animations, interactive UI components, and pixel-perfect design. Built to push creative boundaries and demonstrate frontend mastery.</p>
+            <div class="tech-pills"><span class="pill">Next.js</span><span class="pill g">Tailwind</span><span class="pill">TypeScript</span></div>
+          </div>
+          <a href="#" class="proj-link">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+        </div>
+
+        <div class="project-item reveal">
+          <div class="proj-num">03</div>
+          <div>
+            <div class="proj-type">Backend / API</div>
+            <h3 class="proj-title">Project Three</h3>
+            <p class="proj-desc">A robust REST API with full CRUD operations, JWT authentication, rate limiting, and PostgreSQL integration. Documented with Swagger and deployed to the cloud for public use.</p>
+            <div class="tech-pills"><span class="pill v">Express</span><span class="pill p">PostgreSQL</span><span class="pill">Docker</span></div>
+          </div>
+          <a href="#" class="proj-link">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="project-item reveal">
+          <div class="proj-num">04</div>
+          <div>
+            <div class="proj-type">Coming Soon</div>
+            <h3 class="proj-title">Next Project</h3>
+            <p class="proj-desc">Something big is in the works. Currently in active development. Follow my socials to get updates as it gets built in public.</p>
+            <div class="tech-pills"><span class="pill">TBD</span></div>
+          </div>
+          <div class="proj-soon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            In Progress
+          </div>
+        </div>
+
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:24px;text-align:center;letter-spacing:2px;">
+        // Replace href="#" with your actual project URLs
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       TECH STACK
+       ════════════════════════════════════════════════════ -->
+  <div class="glowing-divider"></div>
+  <section id="stack">
+    <div class="s-wrap stack-section">
+      <div class="s-label reveal" style="justify-content:center">Technology</div>
+      <h2 class="s-title reveal" style="text-align:center">My <span>Stack</span></h2>
+      <div class="stack-orbit reveal">
+        <div class="stack-center">Stack</div>
+
+        <!-- Outer ring nodes -->
+        <div class="tech-node" style="top:4%;left:50%">
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+          <div class="tn-label">React</div>
+        </div>
+        <div class="tech-node" style="top:20%;left:92%">
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--violet)"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div class="tn-label">Node.js</div>
+        </div>
+        <div class="tech-node" style="top:65%;left:95%">
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--pink)"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <div class="tn-label">PostgreSQL</div>
+        </div>
+        <div class="tech-node" style="top:92%;left:70%">
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)"><rect x="2" y="8" width="20" height="12" rx="2"/><path d="M6 8V6a2 2 0 012-2h8a2 2 0 012 2v2"/><line x1="12" y1="12" x2="12" y2="16"/></svg></div>
+          <div class="tn-label">Docker</div>
+        </div>
+        <div class="tech-node" style="top:92%;left:30%">
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--gold)"><path d="M12 2l9 4.9V17L12 22 3 17V6.9z"/></svg></div>
+          <div class="tn-label">Firebase</div>
+        </div>
+        <div class="tech-node" style="top:65%;left:5%">
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--white)"><polygon points="12 2 22 19 2 19"/></svg></div>
+          <div class="tn-label">Next.js</div>
+        </div>
+        <div class="tech-node" style="top:20%;left:8%">
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--violet)"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <div class="tn-label">Python</div>
+        </div>
+
+        <!-- Inner ring nodes -->
+        <div class="tech-node" style="top:18%;left:50%">
+          <div class="tn-c sm"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
+          <div class="tn-label">TypeScript</div>
+        </div>
+        <div class="tech-node" style="top:72%;left:65%">
+          <div class="tn-c sm"><svg viewBox="0 0 24 24" style="stroke:var(--pink)"><path d="M12 10V2l8 14H4l8-4z"/></svg></div>
+          <div class="tn-label">MongoDB</div>
+        </div>
+        <div class="tech-node" style="top:72%;left:35%">
+          <div class="tn-c sm"><svg viewBox="0 0 24 24" style="stroke:var(--muted)"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></div>
+          <div class="tn-label">GitHub</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       CONTACT
+       ════════════════════════════════════════════════════ -->
+  <div class="glowing-divider"></div>
+  <section id="contact" class="contact-section">
+    <div class="s-wrap">
+      <div class="s-label reveal" style="justify-content:center">Contact</div>
+      <h2 class="s-title reveal" style="text-align:center">Let's <span>Connect</span></h2>
+      <p class="reveal" style="font-size:14px;color:var(--muted);margin-bottom:32px;line-height:2;">
+        Got an idea? A project? Want to collaborate or just talk code?<br>
+        I'm always open to new conversations and opportunities.
+      </p>
+      <a href="mailto:officialstellen@gmail.com" class="contact-email-link reveal">officialstellen@gmail.com</a>
+      <a href="tel:+27785206862" class="contact-phone reveal">+27 78 520 6862</a>
+
+      <div class="social-grid reveal">
+        <a href="https://github.com/"    target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+        <a href="https://linkedin.com/in/" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+        <a href="https://twitter.com/"  target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Twitter / X</a>
+        <a href="https://instagram.com/" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
+        <a href="https://youtube.com/"  target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
+        <a href="https://tiktok.com/@" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
+        <a href="https://discord.com/" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>Discord</a>
+        <a href="https://wa.me/27785206862" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════════ -->
+  <footer>
+    <span>© 2025 Thando Lameck Ncube — <span style="color:var(--cyan)">Stellen</span>. All rights reserved.</span>
+    <div class="footer-right">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Built from South Africa
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════════════════
+       SCRIPTS  (order matters)
+       ════════════════════════════════════════════════════ -->
+  <script src="js/loader.js"></script>
+  <script src="js/bg3d.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
