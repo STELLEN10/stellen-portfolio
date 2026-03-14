@@ -86,7 +86,7 @@
     <div class="loader-progress-track">
       <div class="loader-progress-fill" id="loader-fill"></div>
     </div>
-    <div class="loader-percent" id="loader-pct">0%</div>
+    <div class="loader-percent" id="loader-pct">100%</div>
   `;
   loader.appendChild(progressWrap);
 
