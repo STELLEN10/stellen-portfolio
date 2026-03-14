@@ -5,24 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stellen — Full Stack Developer</title>
 
-  <!-- Google Fonts -->
+  
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
 
-  <!-- Three.js -->
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-  <!-- Stylesheets -->
+  
   <link rel="stylesheet" href="css/loader.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ════════════════════════════════════════════════════
-       LOADER  — SVG "S" draw + progress bar
-       ════════════════════════════════════════════════════ -->
+  
   <div id="loader">
 
-    <!-- Animated S -->
+    
     <div id="loader-s">
       <div class="s-orbit">
         <div class="s-orbit-dot"></div>
@@ -36,11 +34,7 @@
             <stop offset="100%" stop-color="#f72585"/>
           </linearGradient>
         </defs>
-        <!--
-          S path: starts top-right, curves left across top,
-          down through mid crossover, sweeps right across bottom.
-          Carefully hand-tuned cubic bezier for a bold "S".
-        -->
+       
         <path class="s-path glowing" d="
           M 90,28
           C 90,28  75,10  55,12
@@ -53,10 +47,9 @@
       </svg>
     </div>
 
-    <!-- Name tag -->
     <div id="loader-name">Stellen<span>.</span>dev</div>
 
-    <!-- Progress -->
+   
     <div id="loader-progress-wrap">
       <div id="loader-bar-track">
         <div id="loader-bar-fill"></div>
@@ -68,19 +61,14 @@
     </div>
 
   </div>
-  <!-- /LOADER -->
-
-
-  <!-- ════════════════════════════════════════════════════
-       PAGE CHROME
-       ════════════════════════════════════════════════════ -->
+ 
   <div id="cursor"></div>
   <div id="cursor-trail"></div>
   <div id="progress-bar"></div>
   <div id="bg-transition"></div>
   <canvas id="bg-canvas"></canvas>
 
-  <!-- Scene indicator -->
+  
   <div id="bg-label">Scene 1 / 5</div>
   <div id="bg-dots">
     <div class="bg-dot active" onclick="switchBG(0)" title="Particle Galaxy"></div>
@@ -91,9 +79,7 @@
   </div>
 
 
-  <!-- ════════════════════════════════════════════════════
-       NAVIGATION
-       ════════════════════════════════════════════════════ -->
+ 
   <nav>
     <div class="logo">Stellen<span>.</span></div>
     <ul class="nav-links">
@@ -106,9 +92,7 @@
   </nav>
 
 
-  <!-- ════════════════════════════════════════════════════
-       HERO
-       ════════════════════════════════════════════════════ -->
+ 
   <section class="hero">
     <div class="hero-content">
       <div class="hero-badge">
@@ -133,7 +117,7 @@
       </div>
     </div>
 
-    <!-- Floating 3D info card -->
+    
     <div class="hero-3d-card floating">
       <div class="card-inner">
         <div class="card-avatar">SN</div>
@@ -155,9 +139,7 @@
   </section>
 
 
-  <!-- ════════════════════════════════════════════════════
-       ABOUT
-       ════════════════════════════════════════════════════ -->
+ 
   <div class="glowing-divider"></div>
   <section id="about">
     <div class="s-wrap">
@@ -199,9 +181,7 @@
   </section>
 
 
-  <!-- ════════════════════════════════════════════════════
-       SKILLS
-       ════════════════════════════════════════════════════ -->
+ 
   <div class="glowing-divider"></div>
   <section id="skills" class="skills-section">
     <div class="s-wrap">
@@ -209,7 +189,7 @@
       <h2 class="s-title reveal">What I <span>Build</span> With</h2>
       <div class="skills-grid">
 
-        <!-- Frontend -->
+        
         <div class="skill-card reveal">
           <div class="sib">
             <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
@@ -223,7 +203,7 @@
           </div>
         </div>
 
-        <!-- Backend -->
+        
         <div class="skill-card reveal rv2">
           <div class="sib v">
             <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
@@ -237,7 +217,7 @@
           </div>
         </div>
 
-        <!-- Database -->
+       
         <div class="skill-card reveal rv3">
           <div class="sib p">
             <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
@@ -250,7 +230,7 @@
           </div>
         </div>
 
-        <!-- Deployment -->
+       
         <div class="skill-card reveal">
           <div class="sib">
             <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
@@ -263,7 +243,7 @@
           </div>
         </div>
 
-        <!-- UI/UX -->
+       
         <div class="skill-card reveal rv2">
           <div class="sib g">
             <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
@@ -276,7 +256,7 @@
           </div>
         </div>
 
-        <!-- Dev Tools -->
+       
         <div class="skill-card reveal rv3">
           <div class="sib v">
             <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
@@ -295,9 +275,7 @@
   </section>
 
 
-  <!-- ════════════════════════════════════════════════════
-       PROJECTS
-       ════════════════════════════════════════════════════ -->
+ 
   <div class="glowing-divider"></div>
   <section id="projects">
     <div class="s-wrap">
@@ -313,7 +291,7 @@
             <p class="proj-desc">A full stack web application built with React and Node.js. Features user authentication, real-time functionality, and a clean responsive interface. Built to solve a real problem, shipped entirely from scratch.</p>
             <div class="tech-pills"><span class="pill">React</span><span class="pill v">Node.js</span><span class="pill p">MongoDB</span></div>
           </div>
-          <a href="#" class="proj-link">
+          <a href="https://connecthub-eta.vercel.app/" class="proj-link">
             <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Live Demo
           </a>
@@ -327,7 +305,7 @@
             <p class="proj-desc">A visually rich frontend project showcasing advanced CSS animations, interactive UI components, and pixel-perfect design. Built to push creative boundaries and demonstrate frontend mastery.</p>
             <div class="tech-pills"><span class="pill">Next.js</span><span class="pill g">Tailwind</span><span class="pill">TypeScript</span></div>
           </div>
-          <a href="#" class="proj-link">
+          <a href="https://devuniverse-one.vercel.app/" class="proj-link">
             <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Live Demo
           </a>
@@ -341,7 +319,7 @@
             <p class="proj-desc">A robust REST API with full CRUD operations, JWT authentication, rate limiting, and PostgreSQL integration. Documented with Swagger and deployed to the cloud for public use.</p>
             <div class="tech-pills"><span class="pill v">Express</span><span class="pill p">PostgreSQL</span><span class="pill">Docker</span></div>
           </div>
-          <a href="#" class="proj-link">
+          <a href="https://stellen-api-production.up.railway.app/docs/" class="proj-link">
             <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
             GitHub
           </a>
@@ -363,15 +341,12 @@
 
       </div>
       <p style="font-size:12px;color:var(--muted);margin-top:24px;text-align:center;letter-spacing:2px;">
-        // Replace href="#" with your actual project URLs
       </p>
     </div>
   </section>
 
 
-  <!-- ════════════════════════════════════════════════════
-       TECH STACK
-       ════════════════════════════════════════════════════ -->
+  
   <div class="glowing-divider"></div>
   <section id="stack">
     <div class="s-wrap stack-section">
@@ -380,7 +355,7 @@
       <div class="stack-orbit reveal">
         <div class="stack-center">Stack</div>
 
-        <!-- Outer ring nodes -->
+        
         <div class="tech-node" style="top:4%;left:50%">
           <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
           <div class="tn-label">React</div>
@@ -410,7 +385,7 @@
           <div class="tn-label">Python</div>
         </div>
 
-        <!-- Inner ring nodes -->
+       
         <div class="tech-node" style="top:18%;left:50%">
           <div class="tn-c sm"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
           <div class="tn-label">TypeScript</div>
@@ -428,9 +403,7 @@
   </section>
 
 
-  <!-- ════════════════════════════════════════════════════
-       CONTACT
-       ════════════════════════════════════════════════════ -->
+
   <div class="glowing-divider"></div>
   <section id="contact" class="contact-section">
     <div class="s-wrap">
@@ -457,9 +430,7 @@
   </section>
 
 
-  <!-- ════════════════════════════════════════════════════
-       FOOTER
-       ════════════════════════════════════════════════════ -->
+  
   <footer>
     <span>© 2025 Thando Lameck Ncube — <span style="color:var(--cyan)">Stellen</span>. All rights reserved.</span>
     <div class="footer-right">
@@ -469,9 +440,7 @@
   </footer>
 
 
-  <!-- ════════════════════════════════════════════════════
-       SCRIPTS  (order matters)
-       ════════════════════════════════════════════════════ -->
+  
   <script src="js/loader.js"></script>
   <script src="js/bg3d.js"></script>
   <script src="js/main.js"></script>
