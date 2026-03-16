@@ -76,3 +76,11 @@ document.addEventListener('loaderDone', () => {
     }, 70);
   }, 800);
 });
+
+ // ══ MUSIC ══
+    const bgm = document.getElementById('bgm');
+    const mBtn = document.getElementById('music-btn');
+    let playing = false;
+    function tryPlay() { bgm.volume = .3; bgm.play().then(() => { playing = true; mBtn.textContent = '🎶'; mBtn.classList.add('playing'); }).catch(() => { }); }
+    mBtn.addEventListener('click', () => { if (playing) { bgm.pause(); playing = false; mBtn.textContent = '🎵'; mBtn.classList.remove('playing'); } else tryPlay(); });
+    ['click', 'scroll', 'keydown', 'touchstart'].forEach(ev => { document.addEventListener(ev, function once() { if (!playing) tryPlay(); document.removeEventListener(ev, once); }); });
