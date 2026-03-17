@@ -79,9 +79,9 @@ document.addEventListener('loaderDone', () => {
 
 // ══ FIXED MUSIC SYSTEM ══
 const playlist = [
-    "./Last Year.mp3", // Added ./ to ensure it looks in the root folder
-    "./song2.mp3",
-    "./song3.mp3"
+    "./Pitfall(MP3_160K).mp3", // Added ./ to ensure it looks in the root folder
+    "./17. Bryant Barnes - Last Year.mp3",
+    "./Love Me(M4A_128K).m4a"
 ];
 
 let currentIndex = 0;
