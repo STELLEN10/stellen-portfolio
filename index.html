@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stellen — Full Stack Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet"> 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link rel="stylesheet" href="css/loader.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-
-  
   <div id="loader">
-
-    
     <div id="loader-s">
       <div class="s-orbit">
         <div class="s-orbit-dot"></div>
@@ -23,12 +23,12 @@
       <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%"   stop-color="#00f5ff"/>
-            <stop offset="50%"  stop-color="#9b5de5"/>
-            <stop offset="100%" stop-color="#f72585"/>
+            <stop offset="0%" stop-color="#00f5ff" />
+            <stop offset="50%" stop-color="#9b5de5" />
+            <stop offset="100%" stop-color="#f72585" />
           </linearGradient>
         </defs>
-       
+
         <path class="s-path glowing" d="
           M 90,28
           C 90,28  75,10  55,12
@@ -37,13 +37,13 @@
           C 80,88  96,96  94,116
           C 92,136 72,150 50,148
           C 28,146 18,132 18,132
-        "/>
+        " />
       </svg>
     </div>
 
     <div id="loader-name">Stellen<span>.</span>dev</div>
 
-   
+
     <div id="loader-progress-wrap">
       <div id="loader-bar-track">
         <div id="loader-bar-fill"></div>
@@ -55,25 +55,25 @@
     </div>
 
   </div>
- 
+
   <div id="cursor"></div>
   <div id="cursor-trail"></div>
   <div id="progress-bar"></div>
   <div id="bg-transition"></div>
   <canvas id="bg-canvas"></canvas>
 
-  
+
   <div id="bg-label">Scene 1 / 5</div>
   <div id="bg-dots">
     <div class="bg-dot active" onclick="switchBG(0)" title="Particle Galaxy"></div>
-    <div class="bg-dot"        onclick="switchBG(1)" title="Neural Web"></div>
-    <div class="bg-dot"        onclick="switchBG(2)" title="Geometry Storm"></div>
-    <div class="bg-dot"        onclick="switchBG(3)" title="Data Matrix"></div>
-    <div class="bg-dot"        onclick="switchBG(4)" title="Cosmic Nebula"></div>
+    <div class="bg-dot" onclick="switchBG(1)" title="Neural Web"></div>
+    <div class="bg-dot" onclick="switchBG(2)" title="Geometry Storm"></div>
+    <div class="bg-dot" onclick="switchBG(3)" title="Data Matrix"></div>
+    <div class="bg-dot" onclick="switchBG(4)" title="Cosmic Nebula"></div>
   </div>
 
 
- 
+
   <nav>
     <div class="logo">Stellen<span>.</span></div>
     <ul class="nav-links">
@@ -86,7 +86,7 @@
   </nav>
 
 
- 
+
   <section class="hero">
     <div class="hero-content">
       <div class="hero-badge">
@@ -94,10 +94,10 @@
         Open to opportunities
       </div>
       <p class="hero-greeting">Hello, world. I'm</p>
-       <h1 class="hero-name">
+      <h1 class="hero-name">
         <br>
         <span class="glow">Stellen</span><br>
-        
+
       </h1>
       <p class="hero-title">Full Stack Developer</p>
       <p class="hero-desc">
@@ -107,11 +107,11 @@
       </p>
       <div class="hero-btns">
         <a href="#projects" class="btn-glow">View Projects →</a>
-        <a href="#contact"  class="btn-outline">Get In Touch</a>
+        <a href="#contact" class="btn-outline">Get In Touch</a>
       </div>
     </div>
 
-    
+
     <div class="hero-3d-card floating">
       <div class="card-inner">
         <div class="card-avatar">S</div>
@@ -127,13 +127,15 @@
     </div>
 
     <div class="scroll-hint">
-      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
       Scroll to explore
     </div>
   </section>
 
 
- 
+
   <div class="glowing-divider"></div>
   <section id="about">
     <div class="s-wrap">
@@ -143,7 +145,9 @@
           <h2 class="s-title reveal">The Dev<br>Behind the <span>Code</span></h2>
           <div class="about-text reveal">
             <div class="self-taught-badge">
-              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
               100% Self-Taught
             </div>
             <p>
@@ -165,9 +169,15 @@
           </div>
         </div>
         <div class="about-visual reveal">
-          <div class="orbit-ring"><div class="orbit-dot"></div></div>
-          <div class="orbit-ring"><div class="orbit-dot"></div></div>
-          <div class="orbit-ring"><div class="orbit-dot"></div></div>
+          <div class="orbit-ring">
+            <div class="orbit-dot"></div>
+          </div>
+          <div class="orbit-ring">
+            <div class="orbit-dot"></div>
+          </div>
+          <div class="orbit-ring">
+            <div class="orbit-dot"></div>
+          </div>
           <div class="orbit-center">SN</div>
         </div>
       </div>
@@ -175,7 +185,6 @@
   </section>
 
 
- 
   <div class="glowing-divider"></div>
   <section id="skills" class="skills-section">
     <div class="s-wrap">
@@ -183,13 +192,18 @@
       <h2 class="s-title reveal">What I <span>Build</span> With</h2>
       <div class="skills-grid">
 
-        
+
         <div class="skill-card reveal">
           <div class="sib">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
           </div>
           <div class="sk-name">Frontend</div>
-          <div class="sk-desc">Creating responsive, interactive UIs that feel fast and look stunning on every screen.</div>
+          <div class="sk-desc">Creating responsive, interactive UIs that feel fast and look stunning on every screen.
+          </div>
           <div class="tech-pills">
             <span class="pill">React</span><span class="pill">Next.js</span>
             <span class="pill">TypeScript</span><span class="pill">HTML5</span>
@@ -197,13 +211,19 @@
           </div>
         </div>
 
-        
+
         <div class="skill-card reveal rv2">
           <div class="sib v">
-            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="8" rx="2" />
+              <rect x="2" y="14" width="20" height="8" rx="2" />
+              <line x1="6" y1="6" x2="6.01" y2="6" />
+              <line x1="6" y1="18" x2="6.01" y2="18" />
+            </svg>
           </div>
           <div class="sk-name">Backend</div>
-          <div class="sk-desc">Designing and building reliable APIs, server logic, and authentication systems from scratch.</div>
+          <div class="sk-desc">Designing and building reliable APIs, server logic, and authentication systems from
+            scratch.</div>
           <div class="tech-pills">
             <span class="pill v">Node.js</span><span class="pill v">Express</span>
             <span class="pill v">Python</span><span class="pill v">REST APIs</span>
@@ -211,10 +231,14 @@
           </div>
         </div>
 
-       
+
         <div class="skill-card reveal rv3">
           <div class="sib p">
-            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            <svg viewBox="0 0 24 24">
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+            </svg>
           </div>
           <div class="sk-name">Database</div>
           <div class="sk-desc">Structuring and managing data for scale with both SQL and NoSQL technologies.</div>
@@ -224,10 +248,15 @@
           </div>
         </div>
 
-       
+
         <div class="skill-card reveal">
           <div class="sib">
-            <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z" />
+              <path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z" />
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+            </svg>
           </div>
           <div class="sk-name">Deployment</div>
           <div class="sk-desc">Taking projects from local to live — CI/CD, containerization, and cloud hosting.</div>
@@ -237,23 +266,32 @@
           </div>
         </div>
 
-       
+
         <div class="skill-card reveal rv2">
           <div class="sib g">
-            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M12 19l7-7 3 3-7 7-3-3z" />
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+              <path d="M2 2l7.586 7.586" />
+              <circle cx="11" cy="11" r="2" />
+            </svg>
           </div>
           <div class="sk-name">UI / UX Design</div>
-          <div class="sk-desc">Thinking beyond code to craft experiences that look great and feel even better to use.</div>
+          <div class="sk-desc">Thinking beyond code to craft experiences that look great and feel even better to use.
+          </div>
           <div class="tech-pills">
             <span class="pill g">Figma</span><span class="pill g">Framer</span>
             <span class="pill g">Three.js</span><span class="pill g">GSAP</span>
           </div>
         </div>
 
-       
+
         <div class="skill-card reveal rv3">
           <div class="sib v">
-            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+            </svg>
           </div>
           <div class="sk-name">Dev Tools</div>
           <div class="sk-desc">The daily toolkit that keeps development efficient, collaborative, and well-tested.</div>
@@ -269,7 +307,6 @@
   </section>
 
 
- 
   <div class="glowing-divider"></div>
   <section id="projects">
     <div class="s-wrap">
@@ -282,11 +319,18 @@
           <div>
             <div class="proj-type">Full Stack App</div>
             <h3 class="proj-title">Project One</h3>
-            <p class="proj-desc">A full stack web application built with React and Node.js. Features user authentication, real-time functionality, and a clean responsive interface. Built to solve a real problem, shipped entirely from scratch.</p>
-            <div class="tech-pills"><span class="pill">React</span><span class="pill v">Node.js</span><span class="pill p">MongoDB</span></div>
+            <p class="proj-desc">A full stack web application built with React and Node.js. Features user
+              authentication, real-time functionality, and a clean responsive interface. Built to solve a real problem,
+              shipped entirely from scratch.</p>
+            <div class="tech-pills"><span class="pill">React</span><span class="pill v">Node.js</span><span
+                class="pill p">Firebase</span></div>
           </div>
-          <a href="https://connecthub-eta.vercel.app/" class="proj-link">
-            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <a href="https://nexus-five-ebon.vercel.app/" class="proj-link">
+            <svg viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
             Live Demo
           </a>
         </div>
@@ -296,11 +340,18 @@
           <div>
             <div class="proj-type">Frontend Project</div>
             <h3 class="proj-title">Project Two</h3>
-            <p class="proj-desc">A visually rich frontend project showcasing advanced CSS animations, interactive UI components, and pixel-perfect design. Built to push creative boundaries and demonstrate frontend mastery.</p>
-            <div class="tech-pills"><span class="pill">Next.js</span><span class="pill g">Tailwind</span><span class="pill">TypeScript</span></div>
+            <p class="proj-desc">A visually rich frontend project showcasing advanced CSS animations, interactive UI
+              components, and pixel-perfect design. Built to push creative boundaries and demonstrate frontend mastery.
+            </p>
+            <div class="tech-pills"><span class="pill">Next.js</span><span class="pill g">Tailwind</span><span
+                class="pill">TypeScript</span></div>
           </div>
           <a href="https://devuniverse-one.vercel.app/" class="proj-link">
-            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
             Live Demo
           </a>
         </div>
@@ -310,11 +361,16 @@
           <div>
             <div class="proj-type">Backend / API</div>
             <h3 class="proj-title">Project Three</h3>
-            <p class="proj-desc">A robust REST API with full CRUD operations, JWT authentication, rate limiting, and PostgreSQL integration. Documented with Swagger and deployed to the cloud for public use.</p>
-            <div class="tech-pills"><span class="pill v">Express</span><span class="pill p">PostgreSQL</span><span class="pill">Docker</span></div>
+            <p class="proj-desc">A robust REST API with full CRUD operations, JWT authentication, rate limiting, and
+              PostgreSQL integration. Documented with Swagger and deployed to the cloud for public use.</p>
+            <div class="tech-pills"><span class="pill v">Express</span><span class="pill p">PostgreSQL</span><span
+                class="pill">Docker</span></div>
           </div>
           <a href="https://stellen-api-production.up.railway.app/docs/" class="proj-link">
-            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+            </svg>
             GitHub
           </a>
         </div>
@@ -324,11 +380,19 @@
           <div>
             <div class="proj-type">Fashion / Model</div>
             <h3 class="proj-title">Model Portfolio</h3>
-            <p class="proj-desc">A fully custom fashion model portfolio built for my friend Ariel, a rising model based in Taichung &amp; Taipei. Features a Kirby-themed cursor, sakura petal animations, loading screen, lightbox gallery, carousel, dance party mode, a secret Easter egg, and a reaction system — all in a single hand-coded HTML file.</p>
-            <div class="tech-pills"><span class="pill v">HTML</span><span class="pill p">CSS</span><span class="pill">JavaScript</span><span class="pill g">Canvas API</span></div>
+            <p class="proj-desc">A fully custom fashion model portfolio built for my friend Ariel, a rising model based
+              in Taichung &amp; Taipei. Features a Kirby-themed cursor, sakura petal animations, loading screen,
+              lightbox gallery, carousel, dance party mode, a secret Easter egg, and a reaction system — all in a single
+              hand-coded HTML file.</p>
+            <div class="tech-pills"><span class="pill v">HTML</span><span class="pill p">CSS</span><span
+                class="pill">JavaScript</span><span class="pill g">Canvas API</span></div>
           </div>
           <a href="https://ariel-portfolio-nu.vercel.app/" class="proj-link">
-            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
             Live Demo
           </a>
         </div>
@@ -338,13 +402,17 @@
           <div>
             <div class="proj-type">Coming Soon</div>
             <h3 class="proj-title">Next Project</h3>
-            <p class="proj-desc">Something big is in the works. Currently in active development. Follow my socials to get updates as it gets built in public.</p>
+            <p class="proj-desc">Something big is in the works. Currently in active development. Follow my socials to
+              get updates as it gets built in public.</p>
             <div class="tech-pills"><span class="pill">TBD</span></div>
           </div>
           <div class="proj-soon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
             In Progress
-          </a>
+            </a>
           </div>
         </div>
 
@@ -355,7 +423,6 @@
   </section>
 
 
-  
   <div class="glowing-divider"></div>
   <section id="stack">
     <div class="s-wrap stack-section">
@@ -364,53 +431,83 @@
       <div class="stack-orbit reveal">
         <div class="stack-center">Stack</div>
 
-        
+
         <div class="tech-node" style="top:4%;left:50%">
-          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+            </svg></div>
           <div class="tn-label">React</div>
         </div>
         <div class="tech-node" style="top:20%;left:92%">
-          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--violet)"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--violet)">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg></div>
           <div class="tn-label">Node.js</div>
         </div>
         <div class="tech-node" style="top:65%;left:95%">
-          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--pink)"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--pink)">
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+            </svg></div>
           <div class="tn-label">PostgreSQL</div>
         </div>
         <div class="tech-node" style="top:92%;left:70%">
-          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)"><rect x="2" y="8" width="20" height="12" rx="2"/><path d="M6 8V6a2 2 0 012-2h8a2 2 0 012 2v2"/><line x1="12" y1="12" x2="12" y2="16"/></svg></div>
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)">
+              <rect x="2" y="8" width="20" height="12" rx="2" />
+              <path d="M6 8V6a2 2 0 012-2h8a2 2 0 012 2v2" />
+              <line x1="12" y1="12" x2="12" y2="16" />
+            </svg></div>
           <div class="tn-label">Docker</div>
         </div>
         <div class="tech-node" style="top:92%;left:30%">
-          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--gold)"><path d="M12 2l9 4.9V17L12 22 3 17V6.9z"/></svg></div>
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--gold)">
+              <path d="M12 2l9 4.9V17L12 22 3 17V6.9z" />
+            </svg></div>
           <div class="tn-label">Firebase</div>
         </div>
         <div class="tech-node" style="top:65%;left:5%">
-          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--white)"><polygon points="12 2 22 19 2 19"/></svg></div>
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--white)">
+              <polygon points="12 2 22 19 2 19" />
+            </svg></div>
           <div class="tn-label">Next.js</div>
         </div>
         <div class="tech-node" style="top:20%;left:8%">
-          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--violet)"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <div class="tn-c"><svg viewBox="0 0 24 24" style="stroke:var(--violet)">
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg></div>
           <div class="tn-label">Python</div>
         </div>
 
-       
+
         <div class="tech-node" style="top:18%;left:50%">
-          <div class="tn-c sm"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
+          <div class="tn-c sm"><svg viewBox="0 0 24 24" style="stroke:var(--cyan)">
+              <polyline points="4 7 4 4 20 4 20 7" />
+              <line x1="9" y1="20" x2="15" y2="20" />
+              <line x1="12" y1="4" x2="12" y2="20" />
+            </svg></div>
           <div class="tn-label">TypeScript</div>
         </div>
         <div class="tech-node" style="top:72%;left:65%">
-          <div class="tn-c sm"><svg viewBox="0 0 24 24" style="stroke:var(--pink)"><path d="M12 10V2l8 14H4l8-4z"/></svg></div>
+          <div class="tn-c sm"><svg viewBox="0 0 24 24" style="stroke:var(--pink)">
+              <path d="M12 10V2l8 14H4l8-4z" />
+            </svg></div>
           <div class="tn-label">MongoDB</div>
         </div>
         <div class="tech-node" style="top:72%;left:35%">
-          <div class="tn-c sm"><svg viewBox="0 0 24 24" style="stroke:var(--muted)"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></div>
+          <div class="tn-c sm"><svg viewBox="0 0 24 24" style="stroke:var(--muted)">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+            </svg></div>
           <div class="tn-label">GitHub</div>
         </div>
       </div>
     </div>
   </section>
-
 
 
   <div class="glowing-divider"></div>
@@ -426,31 +523,52 @@
       <a href="tel:+27785206862" class="contact-phone reveal">+27 78 520 6862</a>
 
       <div class="social-grid reveal">
-        <a href="https://github.com/stellen10"    target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-        <a href="https://linkedin.com/in/thando-lameck-ncube-948439393?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
-        <a href="https://x.com//officialstellen"  target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Twitter / X</a>
-        <a href="https://instagram.com/still.stellen" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
-        <a href="https://youtube.com/@stellen10"  target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
-        <a href="https://wa.me/27785206862" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+        <a href="https://github.com/stellen10" target="_blank" class="social-btn"><svg viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>GitHub</a>
+        <a href="https://linkedin.com/in/thando-lameck-ncube-948439393?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          target="_blank" class="social-btn"><svg viewBox="0 0 24 24">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>LinkedIn</a>
+        <a href="https://x.com//officialstellen" target="_blank" class="social-btn"><svg viewBox="0 0 24 24">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>Twitter / X</a>
+        <a href="https://instagram.com/still.stellen" target="_blank" class="social-btn"><svg viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          </svg>Instagram</a>
+        <a href="https://youtube.com/@stellen10" target="_blank" class="social-btn"><svg viewBox="0 0 24 24">
+            <path
+              d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          </svg>YouTube</a>
+        <a href="https://wa.me/27785206862" target="_blank" class="social-btn"><svg viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>WhatsApp</a>
       </div>
     </div>
   </section>
 
 
-  
   <footer>
     <span>© 2026 Lameck — <span style="color:var(--cyan)">Stellen</span>. All rights reserved.</span>
     <div class="footer-right">
-      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
       Built from South Africa
     </div>
   </footer>
 
 
-  
   <script src="js/loader.js"></script>
   <script src="js/bg3d.js"></script>
   <script src="js/main.js"></script>
 
 </body>
+
 </html>
