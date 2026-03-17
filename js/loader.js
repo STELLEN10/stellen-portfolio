@@ -170,3 +170,75 @@
   }
 
 })();
+
+
+/* ── AUDIO CONFIGURATION ───────────────────────────────── */
+// Define these globally so main.js can access them if needed
+window.portfolioPlaylist = ["./17. Bryant Barnes - Last Year.mp3", "./Love Me(M4A_128K).m4a", "./Pitfall(MP3_160K).mp3"];
+window.currentTrackIndex = 0;
+window.bgm = new Audio();
+window.bgm.volume = 0.7;
+
+(function () {
+  const loader = document.getElementById('loader');
+
+  /* ... (your existing particle and corner code) ... */
+
+  /* ── AUDIO TRIGGER LOGIC ───────────────────────────────── */
+  function attemptPlay() {
+    if (window.bgm.paused) {
+      window.bgm.src = window.portfolioPlaylist[window.currentTrackIndex];
+      window.bgm.play()
+        .then(() => {
+          console.log("🔊 Audio started via loader interaction");
+          removeAudioListeners();
+        })
+        .catch(err => console.log("Waiting for stronger interaction..."));
+    }
+  }
+
+  function removeAudioListeners() {
+    ['click', 'touchstart', 'keydown'].forEach(ev => {
+        window.removeEventListener(ev, attemptPlay);
+    });
+  }
+
+  // Listen for interaction immediately
+  ['click', 'touchstart', 'keydown'].forEach(ev => {
+      window.addEventListener(ev, attemptPlay);
+  });
+
+  // Handle Playlist Looping
+  window.bgm.onended = () => {
+    window.currentTrackIndex = (window.currentTrackIndex + 1) % window.portfolioPlaylist.length;
+    window.bgm.src = window.portfolioPlaylist[window.currentTrackIndex];
+    window.bgm.play();
+  };
+
+  /* ... (rest of your existing progress simulation and reveal code) ... */
+
+  function reveal() {
+    stat.textContent = '✓ Ready';
+    
+    /* Your existing flash effect */
+    const path = loader.querySelector('.s-path');
+    if (path) {
+      path.style.filter = 'drop-shadow(0 0 30px #00f5ff) drop-shadow(0 0 60px rgba(0,245,255,0.9))';
+      path.style.transition = 'filter 0.2s ease';
+    }
+
+    setTimeout(() => {
+      loader.style.transition = 'transform 0.9s cubic-bezier(0.7,0,0.3,1), opacity 0.6s ease';
+      loader.style.transform  = 'translateY(-100%)';
+      loader.style.opacity    = '0';
+
+      // NOTE: Music continues playing here because window.bgm is global!
+
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        document.dispatchEvent(new CustomEvent('loaderDone'));
+      }, 900);
+    }, 500);
+  }
+
+})();
