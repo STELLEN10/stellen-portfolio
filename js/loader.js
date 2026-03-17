@@ -107,7 +107,7 @@
     { target: 60, delay: 400,  label: 'Building components...' },
     { target: 80, delay: 500,  label: 'Preparing animations...' },
     { target: 95, delay: 400,  label: 'Almost ready...' },
-    { target: 100, delay: 300, label: 'Launching portfolio' },
+    { target: 100, delay: 300, label: 'Launching portfolio...' },
   ];
 
   let current = 0;
