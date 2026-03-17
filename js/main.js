@@ -77,46 +77,52 @@ document.addEventListener('loaderDone', () => {
   }, 800);
 });
 
-// ══ UPDATED MUSIC DEBUGGER ══
+// ══ FIXED MUSIC SYSTEM ══
 const playlist = [
-    "/song1.mp3", 
-    "/song2.mp3",
-    "/song3.mp3"
+    "./Last Year.mp3", // Added ./ to ensure it looks in the root folder
+    "./song2.mp3",
+    "./song3.mp3"
 ];
 
 let currentIndex = 0;
 const bgm = new Audio();
-bgm.volume = 0.3;
-bgm.preload = "auto";
+bgm.volume = 0.5; // Bumped up to 0.5 so you can definitely hear it
 
-// 1. Function to attempt playback
 async function playAudio() {
-    try {
-        bgm.src = playlist[currentIndex];
-        await bgm.play();
-        console.log("Success! Playing:", playlist[currentIndex]);
-        
-        // Remove listeners ONLY after successful playback
-        cleanupListeners();
-    } catch (err) {
-        console.warn("Playback blocked. Use a click or tap.", err);
+    // Only try to play if the source isn't already set or playing
+    if (!bgm.src || bgm.paused) {
+        try {
+            // Re-assign src only if it's empty to prevent restarting the same song
+            if (!bgm.src.includes(playlist[currentIndex])) {
+                bgm.src = playlist[currentIndex];
+            }
+            
+            await bgm.play();
+            console.log("🔊 Playing:", playlist[currentIndex]);
+            
+            // Success! Remove the listeners so they don't fire again
+            cleanupListeners();
+        } catch (err) {
+            // This will log if the user hasn't interacted "enough" yet
+            console.warn("Interaction needed for audio.");
+        }
     }
 }
 
-// 2. Listener removal
 function cleanupListeners() {
     ['click', 'touchstart', 'keydown', 'scroll'].forEach(ev => {
         window.removeEventListener(ev, playAudio);
     });
 }
 
-// 3. Attach listeners
+// Attach listeners
 ['click', 'touchstart', 'keydown', 'scroll'].forEach(ev => {
-    window.addEventListener(ev, playAudio, { once: false }); 
+    window.addEventListener(ev, playAudio);
 });
 
-// 4. Handle song transitions
+// Next song logic
 bgm.onended = () => {
     currentIndex = (currentIndex + 1) % playlist.length;
-    playAudio();
+    bgm.src = playlist[currentIndex];
+    bgm.play();
 };
