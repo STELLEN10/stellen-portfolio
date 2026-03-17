@@ -77,47 +77,46 @@ document.addEventListener('loaderDone', () => {
   }, 800);
 });
 
-// ══ MUSIC (auto-starts on first interaction) ══
+// ══ UPDATED MUSIC DEBUGGER ══
 const playlist = [
-    "song1.mp3", // Ensure these files are in the same folder as index.html
-    "song2.mp3",
-    "song3.mp3"
+    "/song1.mp3", 
+    "/song2.mp3",
+    "/song3.mp3"
 ];
 
 let currentIndex = 0;
 const bgm = new Audio();
 bgm.volume = 0.3;
-bgm.src = playlist[currentIndex];
+bgm.preload = "auto";
 
-// Function to start the playlist
-function startGlobalAudio() {
-    bgm.play()
-        .then(() => {
-            console.log(`Now playing: ${playlist[currentIndex]}`);
-            // Remove all interaction listeners once music successfully starts
-            removeAllAudioListeners();
-        })
-        .catch(err => {
-            // Browser might still block it if the interaction wasn't "strong" enough
-            console.warn("Playback prevented. Waiting for next interaction.", err);
-        });
+// 1. Function to attempt playback
+async function playAudio() {
+    try {
+        bgm.src = playlist[currentIndex];
+        await bgm.play();
+        console.log("Success! Playing:", playlist[currentIndex]);
+        
+        // Remove listeners ONLY after successful playback
+        cleanupListeners();
+    } catch (err) {
+        console.warn("Playback blocked. Use a click or tap.", err);
+    }
 }
 
-// When a song ends, play the next one
-bgm.addEventListener("ended", () => {
-    currentIndex = (currentIndex + 1) % playlist.length;
-    bgm.src = playlist[currentIndex];
-    bgm.play().catch(err => console.error("Playlist transition failed:", err));
-});
-
-// Helper to clean up all listeners at once
-function removeAllAudioListeners() {
-    ['click', 'scroll', 'keydown', 'touchstart'].forEach(ev => {
-        window.removeEventListener(ev, startGlobalAudio);
+// 2. Listener removal
+function cleanupListeners() {
+    ['click', 'touchstart', 'keydown', 'scroll'].forEach(ev => {
+        window.removeEventListener(ev, playAudio);
     });
 }
 
-// Add listeners to window (more reliable than document for scroll)
-['click', 'scroll', 'keydown', 'touchstart'].forEach(ev => {
-    window.addEventListener(ev, startGlobalAudio);
+// 3. Attach listeners
+['click', 'touchstart', 'keydown', 'scroll'].forEach(ev => {
+    window.addEventListener(ev, playAudio, { once: false }); 
 });
+
+// 4. Handle song transitions
+bgm.onended = () => {
+    currentIndex = (currentIndex + 1) % playlist.length;
+    playAudio();
+};
