@@ -77,45 +77,47 @@ document.addEventListener('loaderDone', () => {
   }, 800);
 });
 
- // ══ MUSIC (auto-starts on first interaction) ══
+// ══ MUSIC (auto-starts on first interaction) ══
 const playlist = [
-    "Last Year.mp3",
+    "song1.mp3", // Ensure these files are in the same folder as index.html
     "song2.mp3",
     "song3.mp3"
 ];
 
 let currentIndex = 0;
-let playing = false;
-
-// Create a single audio element
 const bgm = new Audio();
 bgm.volume = 0.3;
 bgm.src = playlist[currentIndex];
-bgm.preload = "auto";
 
-// When a song ends, play the next one
-bgm.addEventListener("ended", () => {
-    currentIndex = (currentIndex + 1) % playlist.length; // Loop playlist
-    bgm.src = playlist[currentIndex];
-    bgm.play().catch(err => console.warn("Next song play failed:", err));
-});
-
-// Try to start playing
-function tryPlay() {
+// Function to start the playlist
+function startGlobalAudio() {
     bgm.play()
         .then(() => {
-            playing = true;
-            console.log(`Playing: ${playlist[currentIndex]}`);
+            console.log(`Now playing: ${playlist[currentIndex]}`);
+            // Remove all interaction listeners once music successfully starts
+            removeAllAudioListeners();
         })
         .catch(err => {
-            console.warn("Play failed:", err);
+            // Browser might still block it if the interaction wasn't "strong" enough
+            console.warn("Playback prevented. Waiting for next interaction.", err);
         });
 }
 
-// User interaction events to unlock autoplay
-['click', 'scroll', 'keydown', 'touchstart'].forEach(ev => {
-    document.addEventListener(ev, function once() {
-        if (!playing) tryPlay();
-        document.removeEventListener(ev, once);
+// When a song ends, play the next one
+bgm.addEventListener("ended", () => {
+    currentIndex = (currentIndex + 1) % playlist.length;
+    bgm.src = playlist[currentIndex];
+    bgm.play().catch(err => console.error("Playlist transition failed:", err));
+});
+
+// Helper to clean up all listeners at once
+function removeAllAudioListeners() {
+    ['click', 'scroll', 'keydown', 'touchstart'].forEach(ev => {
+        window.removeEventListener(ev, startGlobalAudio);
     });
+}
+
+// Add listeners to window (more reliable than document for scroll)
+['click', 'scroll', 'keydown', 'touchstart'].forEach(ev => {
+    window.addEventListener(ev, startGlobalAudio);
 });
