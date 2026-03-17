@@ -78,19 +78,44 @@ document.addEventListener('loaderDone', () => {
 });
 
  // ══ MUSIC (auto-starts on first interaction) ══
-const bgm = document.getElementById('bgm');
+const playlist = [
+    "Last Year.mp3",
+    "song2.mp3",
+    "song3.mp3"
+];
+
+let currentIndex = 0;
 let playing = false;
 
+// Create a single audio element
+const bgm = new Audio();
+bgm.volume = 0.3;
+bgm.src = playlist[currentIndex];
+bgm.preload = "auto";
+
+// When a song ends, play the next one
+bgm.addEventListener("ended", () => {
+    currentIndex = (currentIndex + 1) % playlist.length; // Loop playlist
+    bgm.src = playlist[currentIndex];
+    bgm.play().catch(err => console.warn("Next song play failed:", err));
+});
+
+// Try to start playing
 function tryPlay() {
-  bgm.volume = 0.3;
-  bgm.play()
-    .then(() => { playing = true; })
-    .catch(() => {});
+    bgm.play()
+        .then(() => {
+            playing = true;
+            console.log(`Playing: ${playlist[currentIndex]}`);
+        })
+        .catch(err => {
+            console.warn("Play failed:", err);
+        });
 }
 
+// User interaction events to unlock autoplay
 ['click', 'scroll', 'keydown', 'touchstart'].forEach(ev => {
-  document.addEventListener(ev, function once() {
-    if (!playing) tryPlay();
-    document.removeEventListener(ev, once);
-  });
+    document.addEventListener(ev, function once() {
+        if (!playing) tryPlay();
+        document.removeEventListener(ev, once);
+    });
 });
